@@ -17,7 +17,7 @@ opts, _ =  getopt.getopt(sys.argv[1:], "", ["command_port=", "data_port=", "dura
 opts = {item[0].replace("--", ""):item[1] for item in opts}
 
 if "visualizer_data_loc" in opts:
-    with open("../oob_data/"+opts["visualizer_data_loc"], "rb") as f:
+    with open(opts["visualizer_data_loc"], "rb") as f:
         bin_str = f.read()
     with open("tmp_raw.pickle", "wb") as f:
         pickle.dump(bin_str, f)
